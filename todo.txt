@@ -1,0 +1,3 @@
+CAMBIAR EL COM.ASDASDASD | el nombre del proyecto tambien lo tiene y seguro el pom
+
+ver la direccion del jdbc
