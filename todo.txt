@@ -1,3 +1,10 @@
 CAMBIAR EL COM.ASDASDASD | el nombre del proyecto tambien lo tiene y seguro el pom
 
 ver la direccion del jdbc
+
+hacer el testing
+
+tengo que agregar el nuevo modulo una vez que quede funcional
+
+ya defini la dependecia del producer ahora tengo que crear las clases? y el metodo implementado,
+tengo que hacer completo el consumer y usar el metodo de envio de mail que ya hice

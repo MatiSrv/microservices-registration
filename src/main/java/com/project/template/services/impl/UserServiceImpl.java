@@ -1,5 +1,7 @@
 package com.project.template.services.impl;
 
+import com.project.template.events.UserRegisteredEvent;
+import com.project.template.services.UserEventService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -18,7 +20,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
-    UserJpaRepository userJpaRepository;
+    private UserJpaRepository userJpaRepository;
+    @Autowired
+    private UserEventService userEventService;
 
     @Override
 
@@ -33,6 +37,9 @@ public class UserServiceImpl implements UserService {
         UserEntity userEntity = modelMapper.map(user, UserEntity.class);
 
         userJpaRepository.save(userEntity);
+
+        //Send to message queue
+        userEventService.publishUserEmail(user.getEmail());
 
         return modelMapper.map(userEntity, User.class);
 
